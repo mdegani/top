@@ -9,30 +9,30 @@ import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
-import { PeopleService } from './services/people.service';
-import { InMemPeopleService } from './person/fake-backend/people';
-import { PeopleComponent } from './person/components/people.component';
+import { DimensionsService } from './services/dimensions.service';
+import { InMemDimensionsService } from './dimensions/fake-backend/dimensions';
+import { DimensionsComponent } from './dimensions/components/dimensions.component';
 import { AboutComponent } from './about/about.component';
 import { reducers } from './reducers';
 import { metaReducers } from './reducers/index';
-import { CollectionEffects } from './person/effects/collection';
-import { PersonsModule } from './person/person.module';
+import { CollectionEffects } from './dimensions/effects/collection';
+import { DimensionsModule } from './dimensions/dimension.module';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemPeopleService),
+    HttpClientInMemoryWebApiModule.forRoot(InMemDimensionsService),
     BrowserAnimationsModule,
-    PersonsModule,
+    DimensionsModule,
     MaterialModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     RouterModule.forRoot([
       {
-        path: 'people',
-        component: PeopleComponent
+        path: 'dimensions',
+        component: DimensionsComponent
       },
       {
         path: 'about',
@@ -40,7 +40,7 @@ import { PersonsModule } from './person/person.module';
       }
     ])
   ],
-  providers: [PeopleService],
+  providers: [DimensionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

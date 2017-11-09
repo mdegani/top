@@ -1,10 +1,10 @@
 import { Action } from '@ngrx/store';
 
-import { Person } from '../models/person';
+import { Dimension } from '../models/dimension';
 
-export const LOAD = '[People] Load';
-export const LOAD_SUCCESS = '[People] Load Success';
-export const LOAD_FAIL = '[People] Load Fail';
+export const LOAD = '[Dimensions] Load';
+export const LOAD_SUCCESS = '[Dimensions] Load Success';
+export const LOAD_FAIL = '[Dimensions] Load Fail';
 
 export class Load implements Action {
   public readonly type = LOAD;
@@ -12,7 +12,7 @@ export class Load implements Action {
 
 export class LoadSuccess implements Action {
   public readonly type = LOAD_SUCCESS;
-  constructor(public payload: Person[]) {}
+  constructor(public payload: Dimension[]) {}
 }
 
 export class LoadFail implements Action {

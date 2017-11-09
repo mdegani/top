@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PeopleService } from './services/people.service';
+import { DimensionsService } from './services/dimensions.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
 
@@ -9,19 +9,19 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private peopleService: PeopleService) {}
+  constructor(private dimensionsService: DimensionsService) {}
 
-  getPeopleClick$: BehaviorSubject<{}> = new BehaviorSubject<{}>(null);
-  people$ = this.getPeopleClick$.switchMap(() => {
-    return this.peopleService.getPeople();
+  getDimensionsClick$: BehaviorSubject<{}> = new BehaviorSubject<{}>(null);
+  dimensions$ = this.getDimensionsClick$.switchMap(() => {
+    return this.dimensionsService.getDimensions();
   });
-  navLinks = [{ path: 'people', label: 'People' }, { path: 'about', label: 'About' }];
+  navLinks = [{ path: 'dimensions', label: 'Dimensions' }, { path: 'about', label: 'About' }];
 
-  addPerson() {
-    this.peopleService.addPerson();
+  addDimension() {
+    this.dimensionsService.addDimension();
   }
 
   onClick() {
-    this.getPeopleClick$.next(null);
+    this.getDimensionsClick$.next(null);
   }
 }

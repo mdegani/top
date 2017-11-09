@@ -1,14 +1,14 @@
 import { Action } from '@ngrx/store';
 
-import { Person } from '../models/person';
+import { Dimension } from '../models/dimension';
 
-export const LOAD = '[Person] Load';
-export const SELECT = '[Person] Select';
+export const LOAD = '[Dimension] Load';
+export const SELECT = '[Dimension] Select';
 
 export class Load implements Action {
   readonly type = LOAD;
 
-  constructor(public payload: Person) {}
+  constructor(public payload: Dimension) {}
 }
 
 export class Select implements Action {

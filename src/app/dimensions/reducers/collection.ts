@@ -1,7 +1,7 @@
 import * as collection from '../actions/collection';
 import { createSelector } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { Person } from '../models/person';
+import { Dimension } from '../models/dimension';
 
 export interface State {
   loaded: boolean;
@@ -30,7 +30,7 @@ export function reducer(
       return {
         loaded: true,
         loading: false,
-        ids: action.payload.map(person => person.id)
+        ids: action.payload.map(dimension => dimension.id)
       };
     }
     default: {
