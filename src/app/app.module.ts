@@ -6,11 +6,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import {
-  MatTabsModule,
-  MatToolbarModule,
-  MatSidenavModule
-} from '@angular/material';
+import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { PeopleService } from './services/people.service';
@@ -28,11 +24,9 @@ import { PersonsModule } from './person/person.module';
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemPeopleService),
-    MatTabsModule,
-    MatToolbarModule,
-    MatSidenavModule,
     BrowserAnimationsModule,
     PersonsModule,
+    MaterialModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     RouterModule.forRoot([
