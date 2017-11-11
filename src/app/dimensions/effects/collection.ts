@@ -7,8 +7,8 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Person } from '../models/person';
-import { PeopleService } from '../../services/people.service';
+import { Dimension } from '../models/dimension';
+import { DimensionsService } from '../../services/dimensions.service';
 import * as collection from '../actions/collection';
 
 @Injectable()
@@ -17,14 +17,14 @@ export class CollectionEffects {
   loadCollection$: Observable<Action> = this.actions$
     .ofType(collection.LOAD)
     .switchMap(() => {
-      return this.peopleService
-        .getPeople()
-        .map((persons: Person[]) => new collection.LoadSuccess(persons))
+      return this.dimensionsService
+        .getDimensions()
+        .map((dimensions: Dimension[]) => new collection.LoadSuccess(dimensions))
         .catch(error => of(new collection.LoadFail(error)));
     });
 
   constructor(
     private actions$: Actions,
-    private peopleService: PeopleService
+    private dimensionsService: DimensionsService
   ) {}
 }

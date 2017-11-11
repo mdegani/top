@@ -6,14 +6,16 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { CollectionEffects } from './effects/collection';
 import { reducers } from './reducers';
-import { PeopleComponent } from './components/people.component';
+import { DimensionsComponent } from './components/dimensions.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('persons', reducers),
+    MaterialModule,
+    StoreModule.forFeature('dimensions', reducers),
     EffectsModule.forFeature([CollectionEffects])
   ],
-  declarations: [PeopleComponent]
+  declarations: [DimensionsComponent]
 })
-export class PersonsModule {}
+export class DimensionsModule {}
