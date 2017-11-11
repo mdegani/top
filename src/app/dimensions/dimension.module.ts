@@ -7,10 +7,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { CollectionEffects } from './effects/collection';
 import { reducers } from './reducers';
 import { DimensionsComponent } from './components/dimensions.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    MaterialModule,
     StoreModule.forFeature('dimensions', reducers),
     EffectsModule.forFeature([CollectionEffects])
   ],
