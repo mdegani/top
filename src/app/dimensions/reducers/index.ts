@@ -1,27 +1,22 @@
-import * as fromCollection from './collection';
 import * as fromRoot from '../../reducers';
 import * as fromDimensions from './dimensions';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { Dimension } from '../models/dimension';
 
 export interface DimensionsState {
-  collection: fromCollection.State;
   dimensions: fromDimensions.State;
 }
 
 export interface State extends fromRoot.State {
-  'dimensions': DimensionsState;
+  dimensions: DimensionsState;
 }
 
 export const reducers = {
-  collection: fromCollection.reducer,
   dimensions: fromDimensions.reducer
 };
 
-export const getDimensionsState = createFeatureSelector<DimensionsState>('dimensions');
-
-export const getCollectionState = createSelector(
-  getDimensionsState,
-  state => state.collection
+export const getDimensionsState = createFeatureSelector<DimensionsState>(
+  'dimensions'
 );
 
 export const getDimensionEntitiesState = createSelector(
@@ -36,16 +31,15 @@ export const {
   selectTotal: getTotalDimensions
 } = fromDimensions.adapter.getSelectors(getDimensionEntitiesState);
 
-
-export const getCollectionDimensionIds = createSelector(
-  getCollectionState,
-  fromCollection.getIds
+export const getSelectedDimType = createSelector(
+  getDimensionEntitiesState,
+  x => x.selectedDimType
 );
 
-export const getDimensionCollection = createSelector(
-  getDimensionEntities,
-  getCollectionDimensionIds,
-  (entities, ids) => {
-    return ids.map(id => entities[id]);
-  }
-);
+export const uniqueDimTypes = (allDims: Dimension[]) => {
+  const dimTypes = new Set<string>();
+  allDims.map(dim => dim.dimType).forEach(dimType => dimTypes.add(dimType));
+  return Array.from(dimTypes);
+};
+
+export const getDistinctDimTypes = createSelector(getAllDimensions, uniqueDimTypes);

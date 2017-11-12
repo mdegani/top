@@ -9,18 +9,18 @@ import 'rxjs/add/operator/catch';
 
 import { Dimension } from '../models/dimension';
 import { DimensionsService } from '../../services/dimensions.service';
-import * as collection from '../actions/collection';
+import * as dimension from '../actions/dimension';
 
 @Injectable()
-export class CollectionEffects {
+export class DimensionEffects {
   @Effect()
   loadCollection$: Observable<Action> = this.actions$
-    .ofType(collection.LOAD)
+    .ofType(dimension.LOAD)
     .switchMap(() => {
       return this.dimensionsService
         .getDimensions()
-        .map((dimensions: Dimension[]) => new collection.LoadSuccess(dimensions))
-        .catch(error => of(new collection.LoadFail(error)));
+        .map((dimensions: Dimension[]) => new dimension.LoadSuccess(dimensions))
+        .catch(error => of(new dimension.LoadFail(error)));
     });
 
   constructor(

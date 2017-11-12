@@ -1,8 +1,16 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Dimensions</mat-card-title>
-    <mat-card-subtitle>Showing all dimensions</mat-card-subtitle>
+    <mat-card-subtitle>Showing {{selectedDimType | async }} dimentions.</mat-card-subtitle>
   </mat-card-header>
+
+  <mat-card>
+    <mat-radio-group class="example-radio-group" [value]="selectedDimType | async" (change)="changeSelectedDimType($event.value)">
+      <mat-radio-button class="example-radio-button" *ngFor="let dim of dimTypes | async" [value]="dim">
+        {{dim}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </mat-card>
 
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
@@ -26,4 +34,5 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>
+
 </mat-card>

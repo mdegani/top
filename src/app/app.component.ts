@@ -11,17 +11,8 @@ import 'rxjs/add/operator/switchMap';
 export class AppComponent {
   constructor(private dimensionsService: DimensionsService) {}
 
-  getDimensionsClick$: BehaviorSubject<{}> = new BehaviorSubject<{}>(null);
-  dimensions$ = this.getDimensionsClick$.switchMap(() => {
-    return this.dimensionsService.getDimensions();
-  });
-  navLinks = [{ path: 'dimensions', label: 'Dimensions' }, { path: 'about', label: 'About' }];
-
-  addDimension() {
-    this.dimensionsService.addDimension();
-  }
-
-  onClick() {
-    this.getDimensionsClick$.next(null);
-  }
+  navLinks = [
+    { path: 'dimensions', label: 'Dimensions' },
+    { path: 'about', label: 'About' }
+  ];
 }

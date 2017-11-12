@@ -15,7 +15,6 @@ import { DimensionsComponent } from './dimensions/components/dimensions.componen
 import { AboutComponent } from './about/about.component';
 import { reducers } from './reducers';
 import { metaReducers } from './reducers/index';
-import { CollectionEffects } from './dimensions/effects/collection';
 import { DimensionsModule } from './dimensions/dimension.module';
 
 @NgModule({
