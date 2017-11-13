@@ -9,8 +9,8 @@ export class DimensionsService {
     return this.http.get('app/dimensions');
   }
 
-  addDimension() {
-    return this.http.post('app/dimensions', {name: 'new dimension'});
-  }
+  // addDimension() {
+  //   return this.http.post('app/dimensions', {name: 'new dimension'});
+  // }
 }
 
