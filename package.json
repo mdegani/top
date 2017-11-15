@@ -5,6 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-data": "concurrently \"npm run mock-server\" \"ng serve\"",
+    "mock-server": "node ./node_modules/json-server/bin/index.js ./mock-server/database.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,7 +30,9 @@
     "@ngrx/router-store": "^4.1.0",
     "@ngrx/store": "^4.1.0",
     "angular-in-memory-web-api": "^0.5.1",
+    "concurrently": "^3.5.0",
     "core-js": "^2.4.1",
+    "json-server": "^0.12.1",
     "ngrx-store-freeze": "^0.2.0",
     "ngrx-store-logger": "^0.2.0",
     "rxjs": "^5.5.2",
