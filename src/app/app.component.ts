@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DimensionsService } from './services/dimensions.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
-import {Employee, Type, DimTypes} from './dimensions/models';
+import {Employee, Level, DimTypes} from './dimensions/models';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +23,7 @@ export class AppComponent {
 
   navLinks = [
     { path: 'dimensions', label: 'Dimensions' },
-    { path: 'about', label: 'About' }
+    { path: 'transactions', label: 'Transactions' },
+    { path: 'about', label: 'About' },
   ];
 }

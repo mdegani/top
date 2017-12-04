@@ -2,10 +2,12 @@ import {
   Employee,
   Position,
   Job,
-  Type,
+  Level,
   Location,
   Status,
   ExemptStatus,
+  Currency,
+  PayRate
 } from '../../dimensions/models';
 
 export interface EmployeeTransactions {
@@ -15,10 +17,10 @@ export interface EmployeeTransactions {
   managerPosition: Position;
   firstName: string;
   lastName: string;
-  currency: number;
-  payRate: string;
+  currency: Currency;
+  payRate: PayRate;
   job: Job;
-  type: Type;
+  level: Level;
   bonusTarget: number;
   bonusElig: boolean;
   location: Location;

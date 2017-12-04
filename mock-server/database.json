@@ -1,12 +1,42 @@
 {
   "dimensions": [
-    { "id": 1, "dimType": "person", "name": "William Puls" },
-    { "id": 2, "dimType": "person", "name": "Betty Santana" },
-    { "id": 3, "dimType": "person", "name": "Cedric Flores" },
-    { "id": 4, "dimType": "person", "name": "Rachel Harris" },
-    { "id": 5, "dimType": "position", "name": "CEO" },
-    { "id": 6, "dimType": "position", "name": "CTO" },
-    { "id": 7, "dimType": "office", "name": "Queen St. Toronto, ON, Canada" },
-    { "id": 8, "dimType": "office", "name": "Mulberry St. New York, NY, USA" }
+    { "id": 1, "dimType": "Employee", "name": "William Puls" },
+    { "id": 2, "dimType": "Employee", "name": "Betty Santana" },
+    { "id": 3, "dimType": "Employee", "name": "Cedric Flores" },
+    { "id": 4, "dimType": "Employee", "name": "Rachel Harris" },
+    { "id": 5, "dimType": "Position", "name": "Founder" },
+    { "id": 6, "dimType": "Position", "name": "Head of Finance" },
+    { "id": 16, "dimType": "Job", "name": "Finance" },
+    { "id": 17, "dimType": "Job", "name": "General" },
+    { "id": 18, "dimType": "Level", "name": "Top Executive" },
+    { "id": 19, "dimType": "Level", "name": "Senior Pro" },
+    { "id": 7, "dimType": "Location", "name": "Queen St. Toronto, ON, Canada" },
+    { "id": 8, "dimType": "Location", "name": "Mulberry St. New York, NY, USA" },
+    { "id": 9, "dimType": "Exempt Status", "name": "Exempt" },
+    { "id": 10, "dimType": "Exempt Status", "name": "Non-exempt" },
+    { "id": 11, "dimType": "Status", "name": "Permanent, Full Time" },
+    { "id": 12, "dimType": "Pay Rate", "name": "Annual" },
+    { "id": 13, "dimType": "Currency", "name": "CAD - Canadian Dollar" },
+    { "id": 14, "dimType": "Currency", "name": "USD - United States Dollar" },
+    { "id": 15, "dimType": "Job Class", "name": "CEO" }
+  ],
+  "transactions": [
+    {
+      "startDate": "2018-01-01T05:00:00.000Z",
+      "Employee": 1,
+      "position": 5,
+      "managerPosition": null,
+      "firstName": "William",
+      "lastName": "Pulls",
+      "currency": 13,
+      "payRate": 12,
+      "job": 15,
+      "level": "",
+      "bonusTarget": ".5",
+      "bonusElig": true,
+      "location": 7,
+      "status": 11,
+      "exemptStatus": 9
+    }
   ]
 }
