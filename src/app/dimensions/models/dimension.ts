@@ -2,7 +2,7 @@ export enum DimTypes {
   Employee = 'Person',
   Position = 'Position',
   Job = 'Job',
-  PayRate = 'Pay Rate',
+  PayFrequency = 'Pay Frequency',
   Currency = 'Currency',
   Level = 'Level',
   Location = 'Office',
@@ -57,9 +57,9 @@ export class ExemptStatus {
   constructor(public id: number, public name: string) {}
 }
 
-// the rate of pay for salary admin (annual or hourly)
-export class PayRate {
-  kind: DimTypes.PayRate;
+// the pay frequency for salary admin (annual or hourly)
+export class PayFrequency {
+  kind: DimTypes.PayFrequency;
   constructor(public id: number, public name: string) {}
 }
 

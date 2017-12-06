@@ -7,7 +7,7 @@ import {
   Status,
   ExemptStatus,
   Currency,
-  PayRate,
+  PayFrequency,
 } from '../../dimensions/models';
 
 export interface EmployeeTransactions {
@@ -19,7 +19,8 @@ export interface EmployeeTransactions {
   firstName: string;
   lastName: string;
   currency: Currency;
-  payRate: PayRate;
+  payFreq: PayFrequency;
+  payRate: number;
   job: Job;
   level: Level;
   bonusTarget: number;
@@ -38,6 +39,7 @@ export interface EmployeeTransactionsResponse {
   firstName: string;
   lastName: string;
   currency: number;
+  PayFreq: number;
   payRate: number;
   job: number;
   level: number;

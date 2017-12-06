@@ -7,7 +7,6 @@ import { EmployeeTransactionsResponse } from '../employee-transactions/models/em
 import { Dimension } from '../dimensions/models/dimension';
 import { EmployeeTransactions } from '../employee-transactions/models/index';
 import {
-  PayRate,
   Job,
   Currency,
   Position,
@@ -17,6 +16,7 @@ import {
   Location,
   ExemptStatus,
   DimTypes,
+  PayFrequency,
 } from '../dimensions/models/index';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -49,7 +49,8 @@ export class TransactionService {
                 firstName: tran.firstName,
                 lastName: tran.lastName,
                 currency: new Currency(tran.id, this.getName(dim, tran.currency)),
-                payRate: new PayRate(tran.id, this.getName(dim, tran.payRate)),
+                payFreq: new PayFrequency(tran.id, this.getName(dim, tran.PayFreq)),
+                payRate: tran.payRate,
                 job: new Job(tran.id, this.getName(dim, tran.job)),
                 level: new Level(tran.id, this.getName(dim, tran.level)),
                 bonusTarget: tran.bonusTarget,

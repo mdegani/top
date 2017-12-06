@@ -1,17 +1,14 @@
-<p>
-  transactions works!
-</p>
-
 
 <!-- <pre>{{fullTransactions | async | json}}</pre> -->
 
 <div class="example-container mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="id">
+    <!-- hide the id? -->
+    <!-- <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <ng-container matColumnDef="startDate">
       <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
@@ -20,19 +17,56 @@
 
     <ng-container matColumnDef="employee">
       <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.firstName}} {{row.lastName}}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.firstName}} {{row.lastName}} ({{row.employee.id}})</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="position">
+    <!-- this might not be relevant (we shuld just convert manager position to manager name) -->
+    <!-- "should be manager name" -->
+    <!-- <ng-container matColumnDef="position">
       <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.position.name}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
+    <!-- make sure we have short forms for job and level, tooltip to see full name of each -->
     <ng-container matColumnDef="job">
-      <mat-header-cell *matHeaderCellDef> Job</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.job.name}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef>Job</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.job.name}} - {{row.level.name}} </mat-cell>
     </ng-container>
 
+    <!-- currency should have a factor so we can summarize -->
+    <!-- tooltip to show freqency (it's not very important info) -->
+    <ng-container matColumnDef="payRate">
+        <mat-header-cell *matHeaderCellDef>Pay Rate</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.payRate}} </mat-cell>
+      </ng-container>
+
+      <!-- bonus elig can be a tooltip -->
+    <ng-container matColumnDef="bonusTarget">
+        <mat-header-cell *matHeaderCellDef>Bonus Tgt.</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.bonusTarget}} </mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="currency">
+      <mat-header-cell *matHeaderCellDef>Curr.</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.currency.name}} </mat-cell>
+    </ng-container>
+
+    
+    <!-- office's should have short names, hover for full address, we also should get pure country -->
+    <ng-container matColumnDef="location">
+      <mat-header-cell *matHeaderCellDef>Loc</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.location.name}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.status.name}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="exemptStatus">
+        <mat-header-cell *matHeaderCellDef>Curr.</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.exemptStatus.name}} </mat-cell>
+      </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>

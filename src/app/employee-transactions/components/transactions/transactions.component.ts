@@ -13,7 +13,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TransactionsComponent implements OnInit {
   dataSource: TransactionDataSource | null;
-  displayedColumns = ['id', 'startDate', 'employee', 'position', 'job', ];
+  displayedColumns = [
+    'startDate',
+    'employee',
+    'job',
+    'payRate',
+    'bonusTarget',
+    'currency',
+    'location',
+    'status',
+    'exemptStatus',
+  ];
   fullTransactions = this.store.select(fromTransactions.getAllTransactions);
 
   constructor(private store: Store<EmployeeTransactions>) {}
