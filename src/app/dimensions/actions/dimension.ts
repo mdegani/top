@@ -14,6 +14,8 @@ export class Load implements Action {
   constructor() {}
 }
 
+// TODO: absctract these and make generic (LOAD_SUCCESS/FAIL of type)
+
 export class Select implements Action {
   readonly type = SELECT;
 
