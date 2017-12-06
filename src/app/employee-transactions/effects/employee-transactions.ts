@@ -17,17 +17,17 @@ export class TransactionEffects {
   loadCollection$: Observable<Action> = this.actions$
     .ofType(employeeTransactions.LOAD)
     .switchMap(() => {
-      return this.dimensionsService
-        .getDimensions()
+      return this.transactionsService
+        .getTransactions()
         .map(
-          (dimensions: EmployeeTransactions[]) =>
-            new employeeTransactions.LoadSuccess(dimensions),
+          (transactions: EmployeeTransactions[]) =>
+            new employeeTransactions.LoadSuccess(transactions),
         )
         .catch(error => of(new employeeTransactions.LoadFail(error)));
     });
 
   constructor(
     private actions$: Actions,
-    private dimensionsService: TransactionService,
+    private transactionsService: TransactionService,
   ) {}
 }

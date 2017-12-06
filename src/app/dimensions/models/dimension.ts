@@ -17,64 +17,54 @@ export interface Dimension {
 }
 
 // a person
-export interface Employee {
+export class Employee {
   kind: DimTypes.Employee;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
-// a budgeted position in the organization
-export interface Position {
+export class Position {
   kind: DimTypes.Position;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // the nature of the work being done
-export interface Job {
+export class Job {
   kind: DimTypes.Job;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // the level of the work along with the career path type (pro, mgmt, admin)
-export interface Level {
+export class Level {
   kind: DimTypes.Level;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // the base office location for the employee
-export interface Location {
+export class Location {
   kind: DimTypes.Location;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // employement status... active, leave, full time, part time, could mean anything
-export interface Status {
+export class Status {
   kind: DimTypes.Status;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // flsa exemption status (or equivalent): whether the employee is entitled to OT
-export interface ExemptStatus {
+export class ExemptStatus {
   kind: DimTypes.ExemptStatus;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // the rate of pay for salary admin (annual or hourly)
-export interface PayRate {
+export class PayRate {
   kind: DimTypes.PayRate;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
 
 // the currency for an employee's compensation (should match Location)
-export interface Currency {
+export class Currency {
   kind: DimTypes.Currency;
-  id: number;
-  name: string;
+  constructor(public id: number, public name: string) {}
 }
